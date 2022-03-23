@@ -18,13 +18,13 @@ export const BudgetsProvider = ({ children }) => {
     return expenses.filter(expense => expense.budgetId === budgetId)
   }
 
-  function addExpense({description, amount, budgetId}) {
+  function addExpense({ description, amount, budgetId }) {
     setExpenses(prevExpenses => {
       return [...prevExpenses, { id: uuidV4(), description, amount, budgetId }]
     })
   }
 
-  function addBudget(name, max) {
+  function addBudget({ name, max }) {
     setBudgets(prevBudgets => {
       // check to make sure there's no budget with the same name
       if (prevBudgets.find(budget => budget.name === name)) {
@@ -49,13 +49,20 @@ export const BudgetsProvider = ({ children }) => {
   }
 
 
-  return <BudgetsContext.Provider value={{
-    budgets,
-    expenses,
-    getBudgetExpenses,
-    addExpense,
-    addBudget,
-    deleteBudget,
-    deleteExpense
-  }}>{children}</BudgetsContext.Provider>
+  return (
+    <BudgetsContext.Provider
+      value={{
+        budgets,
+        expenses,
+        getBudgetExpenses,
+        addExpense,
+        addBudget,
+        deleteBudget,
+        deleteExpense
+      }}
+    >
+      {children}
+    </BudgetsContext.Provider>
+
+  ) 
 }
