@@ -14,7 +14,7 @@ export default function AddExpenseModal({ show, handleClose, defaultBudgetId }) 
     addExpense({
       description: descriptionRef.current.value,
       amount: parseFloat(amountRef.current.value),
-      budgetId: budgetIdRef.current.value
+      budgetId: budgetIdRef.current.value,
     })
     handleClose()
   }
@@ -28,7 +28,7 @@ export default function AddExpenseModal({ show, handleClose, defaultBudgetId }) 
         <Modal.Body>
           <Form.Group className="mb-3" controlId="description">
             <Form.Label>Description</Form.Label>
-            <Form.Control ref={descriptionRef} type="text" required/>
+            <Form.Control ref={descriptionRef} type="text" required />
           </Form.Group>
           <Form.Group className="mb-3" controlId="amount">
             <Form.Label>Amount</Form.Label>
@@ -37,7 +37,8 @@ export default function AddExpenseModal({ show, handleClose, defaultBudgetId }) 
               type="number"
               required
               min={0}
-              step={.01} />
+              step={.01}
+            />
           </Form.Group>
           <Form.Group className="mb-3" controlId="budgetId">
             <Form.Label>Budget</Form.Label>
@@ -47,7 +48,7 @@ export default function AddExpenseModal({ show, handleClose, defaultBudgetId }) 
               <option id={UNCATEGORIZED_BUDGET_ID}>Uncategorized</option>
               {budgets.map(budget => (
                 <option key={budget.id} value={budget.id}>
-                  {budget}
+                  {budget.name}
                 </option>
               ))}
             </Form.Select>
