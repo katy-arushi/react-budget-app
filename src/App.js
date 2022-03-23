@@ -9,6 +9,7 @@ import { useBudgets } from "./contexts/BudgetsContext";
 import AddBudgetModal from "./components/AddBudgetModal";
 import BudgetCard from "./components/BudgetCard";
 import AddExpenseModal from "./components/AddExpenseModal";
+import UncategorizedBudgetCard from "./components/UncategorizedBudgetCard"
 
 function App() {
 
@@ -51,12 +52,13 @@ function App() {
                 name={budget.name}
                 amount={amount}
                 max={budget.max}
-                openAddExpenseClick={() => openAddExpenseModal(budget.id)}
+                onAddExpenseClick={() => openAddExpenseModal(budget.id)}
               />
             )
           })}
+          <UncategorizedBudgetCard />
         </div>
-      </Container>
+      </Container> 
       <AddBudgetModal
         show={showAddBudgetModal}
         handleClose={() => setShowAddBudgetModal(false)}
