@@ -10,6 +10,7 @@ import AddBudgetModal from "./components/AddBudgetModal";
 import BudgetCard from "./components/BudgetCard";
 import AddExpenseModal from "./components/AddExpenseModal";
 import UncategorizedBudgetCard from "./components/UncategorizedBudgetCard"
+import TotalBudgetCard from "./components/TotalBudgetCard"
 
 function App() {
 
@@ -57,6 +58,7 @@ function App() {
             )
           })}
           <UncategorizedBudgetCard />
+          <TotalBudgetCard />
         </div>
       </Container> 
       <AddBudgetModal
